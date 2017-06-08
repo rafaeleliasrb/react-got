@@ -1,0 +1,140 @@
+{
+  "casas": [
+    {
+      "id": 1,
+      "casa": "Targaryen",
+      "lema": "Fogo e Sangue",
+      "brasao": "Um dragão com três cabeças expelindo chamas, vermelho no preto.",
+      "descricao": "A Casa Targaryen é uma família nobre de Valíria que escapou da ruína de seu continente. Eles viveram por séculos na ilha de Pedra do Dragão até que Aegon Targaryen e suas irmãs partiram com seus dragões para conquistar os Sete Reinos. Entre todas as famílias nobres de Westeros , os Targaryen seguem exclusivamente com a prática Valiriana incestuosa de casamento entre irmãos. A frase \"sangue do dragão\" refere-se à sua beleza notável, com olhos lilases, índigo ou violeta e cabelos ouro-prateados ou branco platinados. Alguns Targaryen também têm uma alta tolerância ao calor, embora eles não sejam totalmente imunes ao fogo. Um traço típico dos Targaryen e que passou para a Casa Blackfyre, foi a capacidade de ter sonhos com premonições. ",
+      "membros": "Viserys Targaryen e Daenerys Targaryen",
+      "url": "targaryen.jpeg"
+    },
+    {
+      "id": 2,
+      "casa": "Lannister",
+      "lema": "Ouça-me rugir",
+      "brasao": "Um leão dourado em campo carmesim.",
+      "descricao": "A Casa Lannister de Rochedo Casterly é mais rica entre as Grandes Casas. Seu principal castelo é Rochedo Casterly que fica nas Terras do Oeste. O lema não oficial é Um Lannister sempre paga suas dívidas e um certo ditado popular é Tão rico quanto um Lannister. Descendem de aventureiros Ândalos que casaram-se com as filhas do Rei do Rochedo. O próprio Rei descendia de Lann o Hábil, um lendário trapaceiro da Era dos Heróis que enganou os casterlianos e conseguiu o Rochedo Casterly para si. Os Lannisters reinaram como Reis do Rochedo até a Guerra da Conquista. Eles se renderam e tornaram-se senhores das Terras do ocidente. Possuem os cabelos da cor do ouro e olhos claros. Por serem tão ricos, muitos acreditam que são melhores do outros e que nada os atinge.",
+      "membros": "Tywin Lannister, Jaime Lannister, Cersei Lannister, Tyrion Lannister, Lancel Lannister, Joffrey Baratheon, Myrcella Baratheon e Tommen Baratheon",
+      "url": "lannister.jpeg"
+    },
+    {
+      "id": 3,
+      "casa": "Stark",
+      "lema": "O inverno está chegando.",
+      "brasao": "Um lobo gigante cinza sobre um fundo branco.",
+      "descricao": "Os Stark de Winterfell formam a principal casa nobre do Norte. Muitas casas menores são subordinadas a eles. Sua morada é Winterfell, no Norte. São homens duros e possuem grande honra, dificilmente saem de seus domínios e viajam para o sul, por isso muito dos costumes de lá são para eles estranhos, como os torneios e festas. Muitos possuem o cabelo castanho escuros ou pretos e os olhos cinzentos, além de um rosto comprido característico da família. São altos e magros, porém atléticos.",
+      "membros": "T Ned Stark, Arya Stark, Brandon Stark, Rickon Stark, Benjen Stark, Jon Snow",
+      "url": "stark.jpeg"
+    },
+    {
+      "id": 4,
+      "casa": "Tully",
+      "lema": "Família, Dever, Honra.",
+      "brasao": "Uma truta prata pulando num campo listrado de azul e vermelho.",
+      "descricao": "A Casa Tully de Correrrio é a principal casa nobre das Terras do Rio e governa a região como Lordes do Tridente. Seu castelo é Correrrio. Os Tully vêm de uma linhagem antiga de Lordes de Correrrio que data da Era de Heróis, mas nunca foram reis. São extremamente conhecidos por seus cabelos ruivos.",
+      "membros": "Edmure Tully, LysaTully,Catelyn Tully,Brynden o Peixe Negro",
+      "url": "tully.jpeg"
+    },
+    {
+      "id": 5,
+      "casa": "Arryn",
+      "lema": "Tão alto quanto a honra.",
+      "brasao": "Uma lua e o falcão brancos em um campo azul-celeste.",
+      "descricao": "Tem uma das mais antigas e puras linhagens da nobreza Ândala, descendendo dos Reis da Montanha e Vale. Seu castelo é chamado de Ninho da Águia. São guerreiros fortes e destemidos, sua aparência pode ser muito parecida com a dos selvagens das montanhas, provavelmente por possuírem ligações genéticas com eles. São grandes e com a expressão forte, cabelos negros e olhos escuros, a barba dos homens, quando deixam crescer, são bem cheias e os deixam com a expressão ainda mais selvagem.",
+      "membros": "Jon Arryn",
+      "url": "arryn.jpeg"
+    },
+    {
+      "id": 6,
+      "casa": "Baratheon",
+      "lema": "Nossa é a fúria.",
+      "brasao": "Um veado negro coroado em um campo dourado.",
+      "descricao": "A Casa Baratheon é a mais nova das Grandes Casas, surgida durante as Guerras da Conquista. Seu castelo é Ponta Tempestade, nas Terras da Tempestade. Através da linhagem feminina os Baratheon são descendentes dos Reis da Tempestade, já que Orys se casou com a filha de Argilac o Arrogante, último dos Reis da Tempestade. Orys adotou o brasão e o lema dos ancestrais de sua esposa. Possuem cabelos bem pretos e olhos bem azuis, são altos e grandes e os homens costumam ser sempre bem fortes, com ombros largos e musculosos.",
+      "membros": "Robert Baratheon, Renly Baratheon, Gendry Waters",
+      "url": "baratheon.jpeg"
+    },
+    {
+      "id": 7,
+      "casa": "Tyrell",
+      "lema": "Crescendo Fortes.",
+      "brasao": "Uma rosa dourada em campo verde-relva.",
+      "descricao": "Os Tyrell ascenderam ao poder com intendentes dos Reis da Campina, cujos domínio incluiam as planícies fertéis, desde a Marca de Dorne e da Torrente de Água negra até as costas do Mar do Poente. Através da linha feminina, dizem descender de Garth Greenhand, o rei jardineiro dos Primeiros homens, que usava uma coroa da trepadeiras e flores e fazia a terra florescer. Quando o Rei Mern, o último da antiga linhagem pereceu no Campo de Fogo, seu intendente Harlen Tyrell rendeu Jardim de Cima a Aegon Targaryen, jurando-lhe fidelidade. Aegon concedeu-lhe o castelo e o domínio sobre a Campina. São bonitos com seus cabelos castanhos e olhos claros.",
+      "membros": "Loras Tyrell, Margaery Tyrell",
+      "url": "tyrell.jpeg"
+    },
+    {
+      "id": 8,
+      "casa": "Martell",
+      "lema": "Insubmissos, Não Curvados, Não Quebrados.",
+      "brasao": "Um sol vermelho trespassado por uma lança dourada.",
+      "descricao": "Nymeria a rainha guerreira de Roine, trouxe seus mais de dez mil navios até a costa de Dorne, o mais meridional dos Sete Reinos, e tomou Lorde Mors Martell por marido. Com a ajuda dela, ele derrotou os rivais pelo domínio de todo o Dorne. A influência roinar permanece forte. Assim, os governantes de Dorne chamam a si mesmos de \"príncipes\", e não \"reis\". Tanto o sangue como os costumes e a história distinguem os homens de Dorne dos outros reinos. São quentes e com temperamento forte, suas mulheres quase sempre são tão lutadoras quanto os homens, além de serem muito independentes. Possuem a pele morena clara e cabelos pretos e lisos, com olhos levemente puxados.",
+      "membros": "Oberyn Martell, Doran Martell ",
+      "url": "martell.jpeg"
+    },
+    {
+      "id": 9,
+      "casa": "Greyjoy",
+      "lema": "Nós não semeamos.",
+      "brasao": "Uma lula gigante dourada em um campo negro.",
+      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
+      "url": "greyjoy.jpeg"
+    },
+    {
+      "id": 10,
+      "casa": "Bolton",
+      "lema": "Nós não semeamos.",
+      "brasao": "Uma lula gigante dourada em um campo negro.",
+      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
+      "url": "bolton.jpeg"
+    },
+    {
+      "id": 11,
+      "casa": "Bracken",
+      "lema": "Nós não semeamos.",
+      "brasao": "Uma lula gigante dourada em um campo negro.",
+      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
+      "url": "bracken.jpeg"
+    },
+    {
+      "id": 12,
+      "casa": "Clegane",
+      "lema": "Nós não semeamos.",
+      "brasao": "Uma lula gigante dourada em um campo negro.",
+      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
+      "url": "clegane.jpeg"
+    },
+    {
+      "id": 13,
+      "casa": "Karstark",
+      "lema": "Nós não semeamos.",
+      "brasao": "Uma lula gigante dourada em um campo negro.",
+      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
+      "url": "karstark.jpeg"
+    },
+    {
+      "id": 14,
+      "casa": "Mallister",
+      "lema": "Nós não semeamos.",
+      "brasao": "Uma lula gigante dourada em um campo negro.",
+      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
+      "url": "mallister.jpeg"
+    },
+    {
+      "id": 15,
+      "casa": "Manderly",
+      "lema": "Nós não semeamos.",
+      "brasao": "Uma lula gigante dourada em um campo negro.",
+      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
+      "url": "manderly.jpeg"
+    },
+    {
+      "id": 16,
+      "casa": "Mormont",
+      "lema": "Nós não semeamos.",
+      "brasao": "Uma lula gigante dourada em um campo negro.",
+      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
+      "url": "mormont.jpeg"
+    }
+  ]
+}

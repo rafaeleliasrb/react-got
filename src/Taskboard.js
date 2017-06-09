@@ -34,7 +34,9 @@ class Taskboard extends Component {
                     <h1 className="header center orange-text">Estórias</h1>
                     <h3>{titulo}</h3>
                     <div className="row">
-                        {estorias}
+                        <div className="col s12 cards-container">
+                            {estorias}
+                        </div>
                     </div>
                 </div>
 

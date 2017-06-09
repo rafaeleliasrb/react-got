@@ -26,16 +26,21 @@ class Estoria extends Component {
 
         return (
             <div className="col s12 m3">
-                <div className="card">
+                <div className="card height-l">
                     <div className="card-image">
-                        <img src={imagem} alt=""></img>
+                        <img src={imagem} alt={this.props.casa}></img>
                     </div>
                     <div className="card-content"> 
                         <p>{this.props.lema}</p>
                     </div>
                     <div className="card-action">
-                        <a href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>
+                        <a className="activator" href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>
                         <a href="#" onClick={this._handleDelete.bind(this)}>Excluir</a>
+                    </div>
+                    <div className="card-reveal">
+                        <span className="card-title grey-text text-darken-4">
+                            {this.props.casa}<i className="material-icons right">close</i></span>
+                        <p>{this.props.descricao}</p>
                     </div>
                 </div>
             </div> 

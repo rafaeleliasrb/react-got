@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Estoria from './Estoria';
 import EstoriaForm from './EstoriaForm';
+import Descricao from './Descricao';
 import jQuery from 'jquery';
 
 class Taskboard extends Component {
     constructor() {
         super();
         this.state = {
-            estorias : []
+            estorias : [],
+            showModal: false
         }
     }
 
@@ -26,12 +28,15 @@ class Taskboard extends Component {
     render() {
         const estorias = this._getEstorias();
         const titulo = this._getTitulo(estorias.length);
+
         return (
             <div className="section no-pad-bot" id="index-banner">
                 <div className="container">
                     <EstoriaForm adicionarEstoria={this._adicionarEstoria.bind(this)}/>
-                    
-                    <h1 className="header center orange-text">Estórias</h1>
+
+                    <Descricao/>
+
+                    <h1 className="header center orange-text">Casas GoT</h1>
                     <h3>{titulo}</h3>
                     <div className="row">
                         <div className="col s12 cards-container">
@@ -39,7 +44,6 @@ class Taskboard extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         );
     }
@@ -76,10 +80,10 @@ class Taskboard extends Component {
             titulo = "Backlog vazio";
         }
         else if(totalDeEstorias === 1) {
-            titulo = "1 estória";
+            titulo = "1 casa";
         }
         else {
-            titulo = `${totalDeEstorias} estórias`;
+            titulo = `${totalDeEstorias} casas`;
         }
         return titulo;
     }

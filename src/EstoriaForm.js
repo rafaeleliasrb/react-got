@@ -5,7 +5,7 @@ class EstoriaFrom extends Component {
         return(
             <div className="row">
                 <form className="col s12" onSubmit={this._handleSubmit.bind(this)}>
-                    <h5>+1 Estória</h5>
+                    <h5>+1 Casa</h5>
                     <div className="input-field col s12">
                         <input placeholder="Casa" 
                             ref={ input => this._casa = input }/><br/>

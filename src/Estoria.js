@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Descricao from './Descricao';
 
 class Estoria extends Component {
     constructor() {
@@ -34,7 +35,9 @@ class Estoria extends Component {
                         <p>{this.props.lema}</p>
                     </div>
                     <div className="card-action">
-                        <a className="activator" href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>
+                        {/*<a className="activator" href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>*/}
+                        <Descricao casa={this.props.casa} lema={this.props.lema} 
+                            descricao={this.props.descricao}/>
                         <a href="#" onClick={this._handleDelete.bind(this)}>Excluir</a>
                     </div>
                     <div className="card-reveal">

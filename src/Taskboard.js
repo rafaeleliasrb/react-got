@@ -45,15 +45,25 @@ class Taskboard extends Component {
     }
 
     _adicionarEstoria(casa, lema, descricao, brasao, membros, url) {
-        const estoria = {
-            casa, 
+        console.log("salvou");
+        const estoria = {"id": 9, 
+            "casa": "sergio carvalho de abreu", 
             lema, 
             descricao, 
             brasao, 
             membros, 
             url
         };
-        jQuery.post('http://localhost:3001/casas', estoria)
+        jQuery.ajax({
+            method: 'PUT',
+            url: 'http://localhost:3001/casas/9',
+            data: estoria,
+        }); 
+    }
+
+    _adicionarEstoriaLogico(id) {
+
+        jQuery.post('http://localhost:3001/casas/'+id+'ok=true')
             .done(novaEstoria => {
                 this.setState({estorias: this.state.estorias.concat([novaEstoria])}
             );
@@ -94,12 +104,22 @@ class Taskboard extends Component {
     }
 
     _excluirEstoria(idEstoria) {
+        console.log(this._buscarEstoriasLogico(idEstoria));
         jQuery.ajax({
-            method: 'DELETE',
+            method: 'PUT',
+            data: {"ativo" : false},
             url: `http://localhost:3001/casas/${idEstoria}`
         });
         
         this.setState({estorias: this.state.estorias.filter(item => item.id !== idEstoria)});
+    }
+
+    _buscarEstoriasLogico(id) {
+        jQuery.ajax({
+            method: 'GET',
+            url: 'http://localhost:3001/casas/'+id,
+            success: estoria => console.log("recuperou" + estoria.id + estoria.ativo)
+        });
     }
 }
 

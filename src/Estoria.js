@@ -25,13 +25,14 @@ class Estoria extends Component {
         let imagem = 'css/images/'+this.props.url;
 
         return (
-            <div className="col s12 m3">
-                <div className="card height-l">
+            <div className="col s12 m4 l3">
+                <div className="card">
                     <div className="card-image">
                         <img src={imagem} alt={this.props.casa}></img>
                     </div>
                     <div className="card-content"> 
                         <p>{this.props.lema}</p>
+                        <p>{this.props.id}</p>
                     </div>
                     <div className="card-action">
                         <a className="activator" href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>

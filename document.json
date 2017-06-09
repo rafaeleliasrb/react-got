@@ -1,13 +1,8 @@
 {
   "casas": [
     {
-      "id": 1,
-      "casa": "Targaryen",
-      "lema": "Fogo e Sangue",
-      "brasao": "Um dragão com três cabeças expelindo chamas, vermelho no preto.",
-      "descricao": "A Casa Targaryen é uma família nobre de Valíria que escapou da ruína de seu continente. Eles viveram por séculos na ilha de Pedra do Dragão até que Aegon Targaryen e suas irmãs partiram com seus dragões para conquistar os Sete Reinos. Entre todas as famílias nobres de Westeros , os Targaryen seguem exclusivamente com a prática Valiriana incestuosa de casamento entre irmãos. A frase \"sangue do dragão\" refere-se à sua beleza notável, com olhos lilases, índigo ou violeta e cabelos ouro-prateados ou branco platinados. Alguns Targaryen também têm uma alta tolerância ao calor, embora eles não sejam totalmente imunes ao fogo. Um traço típico dos Targaryen e que passou para a Casa Blackfyre, foi a capacidade de ter sonhos com premonições. ",
-      "membros": "Viserys Targaryen e Daenerys Targaryen",
-      "url": "targaryen.jpeg"
+      "ativo": "false",
+      "id": 1
     },
     {
       "id": 2,
@@ -74,11 +69,12 @@
     },
     {
       "id": 9,
-      "casa": "Greyjoy",
-      "lema": "Nós não semeamos.",
-      "brasao": "Uma lula gigante dourada em um campo negro.",
-      "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
-      "url": "greyjoy.jpeg"
+      "casa": "sergio carvalho de abreu",
+      "lema": "",
+      "descricao": "",
+      "brasao": "",
+      "membros": "",
+      "url": ""
     },
     {
       "id": 10,
@@ -135,6 +131,15 @@
       "brasao": "Uma lula gigante dourada em um campo negro.",
       "descricao": "Os Greyjoy descendem do rei Cinzento da Era dos Heróis, que segundo a lenda casou-se com uma sereia. Costumam possuir a pele morena bronzeada e os cabelos pretos, muitos homens o mantém compridos. O costume antigo os fazem ser pessoas difíceis de conviver, saqueiam vilas com seus navios, roubam e sequestram pessoas. Seu reinado são as Ilhas de Ferro.",
       "url": "mormont.jpeg"
+    },
+    {
+      "casa": "sergio",
+      "lema": "",
+      "descricao": "",
+      "brasao": "",
+      "membros": "",
+      "url": "",
+      "id": 17
     }
   ]
 }

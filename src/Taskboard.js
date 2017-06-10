@@ -21,7 +21,7 @@ class Taskboard extends Component {
             url: 'http://localhost:3001/casas',
             success: estorias => this.setState({estorias})
         });
-    }
+    }estorias
 
     render() {
         const estorias = this._getEstorias();
@@ -77,7 +77,8 @@ class Taskboard extends Component {
                 membros={casa.membros} brasao={casa.brasao} lema={casa.lema}
                 key={casa.id}
                 id={casa.id} ativo={casa.ativo}
-                onDelete={this._exclusaoLogica.bind(this)}/>);
+                onAtivar={this._ativar.bind(this)} />
+        );
     }
 
     _getTitulo(totalDeEstorias) {
@@ -115,29 +116,35 @@ class Taskboard extends Component {
         this.setState({estorias: this.state.estorias.filter(item => item.id !== idEstoria)});
     }
 
-    _exclusaoLogica(id) {
-        jQuery.getJSON(
-            'http://localhost:3001/casas/'+id,
-            estoria => {
+    _ativar(id, ativar) {
+        console.log("inicio");
+        var estorias = this.state.estorias;
+        var index = estorias.findIndex(item => item.id === id);
+        var estoriaLocal = estorias[index];
 
-                jQuery.ajax({
-                    method: 'PUT',
-                    data: {
-                        "id": estoria.id,
-                        "casa": estoria.casa, 
-                        "lema": estoria.lema,
-                        "brasao": estoria.brasao,
-                        "descricao": estoria.descricao,
-                        "membros": estoria.membros,
-                        "url": estoria.url,
-                        "ativo": true                     
-                    },
-                    url: `http://localhost:3001/casas/${id}`,
-                });                     
+        var estoriaAlterada = {
+            "id": estoriaLocal.id,
+            "casa": estoriaLocal.casa, 
+            "lema": estoriaLocal.lema,
+            "brasao": estoriaLocal.brasao,
+            "descricao": estoriaLocal.descricao,
+            "membros": estoriaLocal.membros,
+            "url": estoriaLocal.url,
+            "ativo": ativar  
+        };
+        estorias[index] = estoriaAlterada;
 
-            }
-        );
-    }
+        this.setState({estorias: estorias}, function () {
+            console.log("estado");
+        });
+
+        jQuery.ajax({
+            method: 'PUT',
+            data: estoriaAlterada,
+            url: `http://localhost:3001/casas/${id}`,
+        })
+        console.log("fim");
+    }//fim ativar
 }
 
 export default Taskboard;

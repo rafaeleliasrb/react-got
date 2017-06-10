@@ -33,6 +33,7 @@ class Estoria extends Component {
                     <div className="card-content"> 
                         <p>{this.props.lema}</p>
                         <p>{this.props.id}</p>
+                        <p>ativo:{this.props.ativo}</p>
                     </div>
                     <div className="card-action">
                         <a className="activator" href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>

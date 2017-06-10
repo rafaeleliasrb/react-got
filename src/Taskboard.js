@@ -76,8 +76,8 @@ class Taskboard extends Component {
                 casa={casa.casa} descricao={casa.descricao} url={casa.url}
                 membros={casa.membros} brasao={casa.brasao} lema={casa.lema}
                 key={casa.id}
-                id={casa.id}
-                onDelete={this._excluirEstoria.bind(this)}/>);
+                id={casa.id} ativo={casa.ativo}
+                onDelete={this._exclusaoLogica.bind(this)}/>);
     }
 
     _getTitulo(totalDeEstorias) {
@@ -104,7 +104,8 @@ class Taskboard extends Component {
     }
 
     _excluirEstoria(idEstoria) {
-        console.log(this._buscarEstoriasLogico(idEstoria));
+        console.log(idEstoria);
+
         jQuery.ajax({
             method: 'PUT',
             data: {"ativo" : false},
@@ -114,12 +115,28 @@ class Taskboard extends Component {
         this.setState({estorias: this.state.estorias.filter(item => item.id !== idEstoria)});
     }
 
-    _buscarEstoriasLogico(id) {
-        jQuery.ajax({
-            method: 'GET',
-            url: 'http://localhost:3001/casas/'+id,
-            success: estoria => console.log("recuperou" + estoria.id + estoria.ativo)
-        });
+    _exclusaoLogica(id) {
+        jQuery.getJSON(
+            'http://localhost:3001/casas/'+id,
+            estoria => {
+
+                jQuery.ajax({
+                    method: 'PUT',
+                    data: {
+                        "id": estoria.id,
+                        "casa": estoria.casa, 
+                        "lema": estoria.lema,
+                        "brasao": estoria.brasao,
+                        "descricao": estoria.descricao,
+                        "membros": estoria.membros,
+                        "url": estoria.url,
+                        "ativo": true                     
+                    },
+                    url: `http://localhost:3001/casas/${id}`,
+                });                     
+
+            }
+        );
     }
 }
 

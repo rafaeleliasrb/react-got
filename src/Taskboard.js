@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Estoria from './Estoria';
 import EstoriaForm from './EstoriaForm';
-import Descricao from './Descricao';
+import ModalBottom from './ModalBottom';
 import jQuery from 'jquery';
 
 class Taskboard extends Component {
@@ -9,7 +9,13 @@ class Taskboard extends Component {
         super();
         this.state = {
             estorias : [],
-            showModal: false
+            showModal: false,
+            dadosModal : {
+                casa: '',
+                lema: '',
+                descricao: '',
+                url: ''
+            }
         }
     }
 
@@ -27,22 +33,22 @@ class Taskboard extends Component {
 
     render() {
         const estorias = this._getEstorias();
-        const titulo = this._getTitulo(estorias.length);
+        /*const titulo = this._getTitulo(estorias.length);*/
+        const modal = this._getModal();
 
         return (
             <div className="section no-pad-bot" id="index-banner">
                 <div className="container">
                     <EstoriaForm adicionarEstoria={this._adicionarEstoria.bind(this)}/>
 
-                    <Descricao/>
-
-                    <h1 className="header center orange-text">Casas GoT</h1>
-                    <h3>{titulo}</h3>
+                    {/*<h1 className="header center orange-text">Casas GoT</h1>
+                    <h3>{titulo}</h3>*/}
                     <div className="row">
                         <div className="col s12 cards-container">
                             {estorias}
                         </div>
                     </div>
+                    {modal}
                 </div>
             </div>
         );
@@ -71,7 +77,8 @@ class Taskboard extends Component {
                 membros={casa.membros} brasao={casa.brasao} lema={casa.lema}
                 key={casa.id}
                 id={casa.id}
-                onDelete={this._excluirEstoria.bind(this)}/>);
+                onDelete={this._excluirEstoria.bind(this)}
+                montaModal={this._montaModal.bind(this)}/>);
     }
 
     _getTitulo(totalDeEstorias) {
@@ -104,6 +111,24 @@ class Taskboard extends Component {
         });
         
         this.setState({estorias: this.state.estorias.filter(item => item.id !== idEstoria)});
+    }
+
+    _getModal() {
+        return (<ModalBottom casa={this.state.dadosModal.casa} 
+                    lema={this.state.dadosModal.lema} 
+                    descricao={this.state.dadosModal.descricao} 
+                    url={this.state.dadosModal.url}/>);
+    }
+
+    _montaModal(dadosModal) {
+        const dados = { 
+                casa: dadosModal.casa,
+                lema: dadosModal.lema,
+                descricao: dadosModal.descricao,
+                url: dadosModal.url
+            }
+        
+        this.setState({dadosModal : dados});
     }
 }
 

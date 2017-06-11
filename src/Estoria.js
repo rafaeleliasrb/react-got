@@ -1,43 +1,25 @@
 import React, { Component } from 'react';
-import Descricao from './Descricao';
 
 class Estoria extends Component {
-    constructor() {
-        super();
-        this.state = {
-            exibirEstoria : false
-        }
-    }
-
-    _handleClick(event) {
-        event.preventDefault();
-        this.setState({
-            exibirEstoria: !this.state.exibirEstoria
-        });
-    }
-    
     render() {
-        let textoBotao = "Exibir descrição";
-
-        if(this.state.exibirEstoria) {
-            textoBotao = "Ocultar descrição";
-        }
+        window.$(document).ready(function() {
+            window.$('.modal').modal();
+        });
 
         let imagem = 'css/images/'+this.props.url;
 
         return (
-            <div className="col s12 m3">
+            <div className="col s12 m4 l3">
                 <div className="card height-l">
                     <div className="card-image">
                         <img src={imagem} alt={this.props.casa}></img>
                     </div>
                     <div className="card-content"> 
-                        <p>{this.props.lema}</p>
+                        <p>{this.props.casa}</p>
                     </div>
                     <div className="card-action">
                         {/*<a className="activator" href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>*/}
-                        <Descricao casa={this.props.casa} lema={this.props.lema} 
-                            descricao={this.props.descricao}/>
+                        <a href="#modal1" onClick={this._abrirModal.bind(this)}>Descrição</a>
                         <a href="#" onClick={this._handleDelete.bind(this)}>Excluir</a>
                     </div>
                     <div className="card-reveal">
@@ -53,6 +35,17 @@ class Estoria extends Component {
     _handleDelete(event) {
         event.preventDefault();
         this.props.onDelete(this.props.id);
+    }
+
+    _abrirModal(event) {
+        event.preventDefault();
+        const dadosModal = {
+            casa: this.props.casa,
+            lema: this.props.lema,
+            descricao: this.props.descricao,
+            url: this.props.url
+        }
+        this.props.montaModal(dadosModal);
     }
 }
 

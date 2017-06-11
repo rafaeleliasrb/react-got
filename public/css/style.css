@@ -13,6 +13,22 @@
 	font-size: inherit;
 }
 
-.m3:nth-child(4n+1){
-    clear:both;
+@media only screen and (max-width: 992px) {
+  .m4:nth-child(3n+1) {
+      clear:both;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .l3:nth-child(4n+1) {
+      clear:both;
+  }
+}
+
+.modal.bottom-sheet {
+  max-height: 75%;
+}
+
+.logo-left {
+    width: 80px;
 }

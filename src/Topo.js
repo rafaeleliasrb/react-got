@@ -3,9 +3,13 @@ import React, { Component } from 'react';
 class Topo extends Component {
     render() {
         return (
-            <nav className="indigo darken-4" role="navigation">
+            <nav className="grey darken-4" role="navigation">
                 <div className="nav-wrapper container">
-                    <a id="logo-container" href="#" className="brand-logo">React Taskboard</a>
+                    <a href="#">
+                        <img className="logo-left" src="css/images/stark-2.png" alt=""/>
+                    </a>
+
+                    <a id="logo-container" href="#" className="brand-logo center">Game of Thrones</a>
                 </div>
             </nav>
         );

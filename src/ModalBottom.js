@@ -20,6 +20,8 @@ class ModalBottom extends Component {
                             </div>
                             <h5>Lema</h5>
                             <p>{this.props.lema}</p>
+                            <h5>Membros</h5>
+                            <p>{this.props.membros}</p>
                             <h5>Base</h5>
                             <p>{this.props.base}</p>
                             <h5>Região</h5>

@@ -14,6 +14,7 @@ class Taskboard extends Component {
                 casa: '',
                 lema: '',
                 descricao: '',
+                membros: '',
                 url: ''
             }
         }
@@ -117,6 +118,7 @@ class Taskboard extends Component {
         return (<ModalBottom casa={this.state.dadosModal.casa} 
                     lema={this.state.dadosModal.lema} 
                     descricao={this.state.dadosModal.descricao} 
+                    membros={this.state.dadosModal.membros}
                     url={this.state.dadosModal.url}/>);
     }
 
@@ -125,6 +127,7 @@ class Taskboard extends Component {
                 casa: dadosModal.casa,
                 lema: dadosModal.lema,
                 descricao: dadosModal.descricao,
+                membros: dadosModal.membros,
                 url: dadosModal.url
             }
         

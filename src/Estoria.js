@@ -43,6 +43,7 @@ class Estoria extends Component {
             casa: this.props.casa,
             lema: this.props.lema,
             descricao: this.props.descricao,
+            membros: this.props.membros,
             url: this.props.url
         }
         this.props.montaModal(dadosModal);

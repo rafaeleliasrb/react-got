@@ -8,8 +8,7 @@ class Taskboard extends Component {
     constructor() {
         super();
         this.state = {
-            casasAtivas : [],
-            casasInativas: [],
+            casas : [],
             showModal: false,
             dadosModal : {
                 casa: '',
@@ -22,26 +21,15 @@ class Taskboard extends Component {
     }
 
     componentWillMount() {
-        this._buscarCasasAtivas();
-        this._buscarCasasInativas();
+        this._buscarCasas();
     }
 
-    _buscarCasasAtivas() {
+    _buscarCasas() {
         jQuery.ajax({
             method: 'GET',
-            url: `http://localhost:3001/casas?ativo=true`,
+            url: `http://localhost:3001/casas`,
             success: casas => this.setState({ 
-                casasAtivas : casas
-            })
-        });        
-    }
-
-    _buscarCasasInativas() {
-        jQuery.ajax({
-            method: 'GET',
-            url: `http://localhost:3001/casas?ativo=false`,
-            success: casas => this.setState({ 
-                casasInativas : casas
+                casas: casas                
             })
         });        
     }
@@ -70,7 +58,9 @@ class Taskboard extends Component {
         );
     }
      _getCasasAtivas() {
-        return this.state.casasAtivas.map(casa => 
+        let casasAtivas = this.state.casas.filter(item => item.ativo === true);
+        console.log("casasAtivas: " + casasAtivas);
+        return casasAtivas.map(casa => 
             <Casa 
                 casa={casa.casa} descricao={casa.descricao} url={casa.url}
                 membros={casa.membros} brasao={casa.brasao} lema={casa.lema}
@@ -82,7 +72,8 @@ class Taskboard extends Component {
     }
 
      _getCasasInativas() {
-        return this.state.casasInativas.map(casa => 
+        let casasInativas = this.state.casas.filter(item => item.ativo === false);
+        return casasInativas.map(casa => 
             <Casa 
                 casa={casa.casa} descricao={casa.descricao} url={casa.url}
                 membros={casa.membros} brasao={casa.brasao} lema={casa.lema}
@@ -108,8 +99,7 @@ class Taskboard extends Component {
     }
 
     componentDidMount() {
-        this._timer = setInterval(() => this._buscarCasasAtivas(), 5000);
-        this._timer = setInterval(() => this._buscarCasasInativas(), 5000);
+        this._timer = setInterval(() => this._buscarCasas(), 5000);
     }
 
     componentWillUnmount() {
@@ -118,39 +108,18 @@ class Taskboard extends Component {
     }
 
   _alterar(id) {
-        let casasAtivas = this.state.casasAtivas;
-        let casasInativas = this.state.casasInativas;        
-        
-        let indexAtivo = casasAtivas.findIndex(item => item.id === id);
-        let indexInativo = casasInativas.findIndex(item => item.id === id);
+        let casas = this.state.casas;
 
-        let casaAlterada;
-
-        if (indexAtivo != -1) {
-            casaAlterada = casasAtivas[indexAtivo];
-            casaAlterada.ativo =  !casaAlterada.ativo;
-
-            casasInativas.splice(indexAtivo, 0, casaAlterada);
+        let index = casas.findIndex(item => item.id === id);
+        casas[index].ativo = !casas[index].ativo;
 
             this.setState({
-                casasAtivas: this.state.casasAtivas.filter(item => item.id !== id),
-                casasInativas: casasInativas
+                casas: casas
             });
-        } else if (indexInativo != -1) {
-            casaAlterada = casasInativas[indexInativo];
-            casaAlterada.ativo = !casaAlterada.ativo;
-
-            casasAtivas.splice(indexInativo, 0, casaAlterada);
-
-            this.setState({
-                casasInativas: this.state.casasInativas.filter(item => item.id !== id),
-                casasAtivas: casasAtivas
-            });
-        }
 
         jQuery.ajax({
             method: 'PUT',
-            data: JSON.stringify(casaAlterada),
+            data: JSON.stringify(casas[index]),
             url: `http://localhost:3001/casas/${id}`,
             contentType: "application/json",
         })                   

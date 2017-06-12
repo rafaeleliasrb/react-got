@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Estoria extends Component {
+class Casa extends Component {
     render() {
         window.$(document).ready(function() {
             window.$('.modal').modal();
@@ -20,16 +20,18 @@ class Estoria extends Component {
                     <div className="card-action">
                         <a href="#modal1" onClick={this._abrirModal.bind(this)}
                             className="left">Ver descrição</a>
-                        <a href="#" onClick={this._handleDelete.bind(this)}>Excluir</a>
+                        <a href="#" onClick={this._handleAlterar.bind(this)}>
+                            {this.props.ativo ? 'Remover' : 'Incluir'}
+                        </a>
                     </div>
                 </div>
             </div> 
         );
     }
     
-    _handleDelete(event) {
+    _handleAlterar(event) {
         event.preventDefault();
-        this.props.onDelete(this.props.id);
+        this.props.onAlterar(this.props.id);
     }
 
     _abrirModal(event) {
@@ -45,4 +47,4 @@ class Estoria extends Component {
     }
 }
 
-export default Estoria;
+export default Casa;

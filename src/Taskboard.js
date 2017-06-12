@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Estoria from './Estoria';
+import Casa from './Casa';
 import EstoriaForm from './EstoriaForm';
 import ModalBottom from './ModalBottom';
 import jQuery from 'jquery';
@@ -8,7 +8,8 @@ class Taskboard extends Component {
     constructor() {
         super();
         this.state = {
-            estorias : [],
+            casasAtivas : [],
+            casasInativas: [],
             showModal: false,
             dadosModal : {
                 casa: '',
@@ -21,64 +22,76 @@ class Taskboard extends Component {
     }
 
     componentWillMount() {
-        this._buscarEstorias();
+        this._buscarCasasAtivas();
+        this._buscarCasasInativas();
     }
 
-    _buscarEstorias() {
+    _buscarCasasAtivas() {
         jQuery.ajax({
             method: 'GET',
-            url: 'http://localhost:3001/casas',
-            success: estorias => this.setState({estorias})
-        });
+            url: `http://localhost:3001/casas?ativo=true`,
+            success: casas => this.setState({ 
+                casasAtivas : casas
+            })
+        });        
     }
 
+    _buscarCasasInativas() {
+        jQuery.ajax({
+            method: 'GET',
+            url: `http://localhost:3001/casas?ativo=false`,
+            success: casas => this.setState({ 
+                casasInativas : casas
+            })
+        });        
+    }
     render() {
-        const estorias = this._getEstorias();
-        /*const titulo = this._getTitulo(estorias.length);*/
+        const casasAtivas = this._getCasasAtivas();
+        const casasInativas = this._getCasasInativas();
         const modal = this._getModal();
 
         return (
-            <div className="section no-pad-bot" id="index-banner">
-                <div className="container">
-                    <EstoriaForm adicionarEstoria={this._adicionarEstoria.bind(this)}/>
+            <div>
+                <div className="section no-pad-bot" id="index-banner">
+                    <div className="container">
+                        <h3>Minhas Casas Desk</h3>
+                        <div className="row">
+                            {casasAtivas}
+                        </div>
 
-                    {/*<h1 className="header center orange-text">Casas GoT</h1>
-                    <h3>{titulo}</h3>*/}
-                    <div className="row">
-                        {estorias}
+                        <h3>Casas Disponíveis</h3>
+                        <div className="row">
+                            {casasInativas}
+                        </div>
                     </div>
                     {modal}
                 </div>
             </div>
         );
     }
-
-    _adicionarEstoria(casa, lema, descricao, brasao, membros, url) {
-        const estoria = {
-            casa, 
-            lema, 
-            descricao, 
-            brasao, 
-            membros, 
-            url
-        };
-        jQuery.post('http://localhost:3001/casas', estoria)
-            .done(novaEstoria => {
-                this.setState({estorias: this.state.estorias.concat([novaEstoria])}
-            );
-        }); 
-    }
-
-     _getEstorias() {
-        return this.state.estorias.map(casa => 
-            <Estoria 
+     _getCasasAtivas() {
+        return this.state.casasAtivas.map(casa => 
+            <Casa 
                 casa={casa.casa} descricao={casa.descricao} url={casa.url}
                 membros={casa.membros} brasao={casa.brasao} lema={casa.lema}
                 key={casa.id}
                 id={casa.id}
-                onDelete={this._excluirEstoria.bind(this)}
+                ativo={casa.ativo}
+                onAlterar={this._alterar.bind(this)}
                 montaModal={this._montaModal.bind(this)}/>);
     }
+
+     _getCasasInativas() {
+        return this.state.casasInativas.map(casa => 
+            <Casa 
+                casa={casa.casa} descricao={casa.descricao} url={casa.url}
+                membros={casa.membros} brasao={casa.brasao} lema={casa.lema}
+                key={casa.id}
+                id={casa.id}
+                ativo={casa.ativo}
+                onAlterar={this._alterar.bind(this)}
+                montaModal={this._montaModal.bind(this)}/>);
+    }    
 
     _getTitulo(totalDeEstorias) {
         let titulo;
@@ -95,7 +108,8 @@ class Taskboard extends Component {
     }
 
     componentDidMount() {
-        this._timer = setInterval(() => this._buscarEstorias(), 5000);
+        this._timer = setInterval(() => this._buscarCasasAtivas(), 5000);
+        this._timer = setInterval(() => this._buscarCasasInativas(), 5000);
     }
 
     componentWillUnmount() {
@@ -103,14 +117,45 @@ class Taskboard extends Component {
         clearInterval(this._timer);
     }
 
-    _excluirEstoria(idEstoria) {
-        jQuery.ajax({
-            method: 'DELETE',
-            url: `http://localhost:3001/casas/${idEstoria}`
-        });
+  _alterar(id) {
+        let casasAtivas = this.state.casasAtivas;
+        let casasInativas = this.state.casasInativas;        
         
-        this.setState({estorias: this.state.estorias.filter(item => item.id !== idEstoria)});
-    }
+        let indexAtivo = casasAtivas.findIndex(item => item.id === id);
+        let indexInativo = casasInativas.findIndex(item => item.id === id);
+
+        let casaAlterada;
+
+        if (indexAtivo != -1) {
+            casaAlterada = casasAtivas[indexAtivo];
+            casaAlterada.ativo =  !casaAlterada.ativo;
+
+            casasInativas.splice(indexAtivo, 0, casaAlterada);
+
+            this.setState({
+                casasAtivas: this.state.casasAtivas.filter(item => item.id !== id),
+                casasInativas: casasInativas
+            });
+        } else if (indexInativo != -1) {
+            casaAlterada = casasInativas[indexInativo];
+            casaAlterada.ativo = !casaAlterada.ativo;
+
+            casasAtivas.splice(indexInativo, 0, casaAlterada);
+
+            this.setState({
+                casasInativas: this.state.casasInativas.filter(item => item.id !== id),
+                casasAtivas: casasAtivas
+            });
+        }
+
+        jQuery.ajax({
+            method: 'PUT',
+            data: JSON.stringify(casaAlterada),
+            url: `http://localhost:3001/casas/${id}`,
+            contentType: "application/json",
+        })                   
+    }//fim ativar
+
 
     _getModal() {
         return (<ModalBottom casa={this.state.dadosModal.casa} 

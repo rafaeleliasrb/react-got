@@ -6,9 +6,9 @@ import jQuery from 'jquery';
 class Taskboard extends Component {
     constructor() {
         super();
-        this.state = {
-            estorias : []
-        }
+        this.state = {estorias : [], 
+                     casasAtivas: [],
+                    casasInativas: []   }
     }
 
     componentWillMount() {
@@ -29,7 +29,7 @@ class Taskboard extends Component {
         return (
             <div className="section no-pad-bot" id="index-banner">
                 <div className="container">
-                    <EstoriaForm adicionarEstoria={this._adicionarEstoria.bind(this)}/>
+                   <EstoriaForm adicionarEstoria={this._adicionarEstoria.bind(this)}/>
                     
                     <h1 className="header center orange-text">Estórias</h1>
                     <h3>{titulo}</h3>
@@ -77,7 +77,7 @@ class Taskboard extends Component {
                 membros={casa.membros} brasao={casa.brasao} lema={casa.lema}
                 key={casa.id}
                 id={casa.id} ativo={casa.ativo}
-                onAtivar={this._ativar.bind(this)} />
+                onAlterar={this._alterar.bind(this)} />
         );
     }
 
@@ -116,10 +116,10 @@ class Taskboard extends Component {
         this.setState({estorias: this.state.estorias.filter(item => item.id !== idEstoria)});
     }
 
-    _ativar(id, ativar) {
+    _alterar(id) {
         let estoriasLocal = this.state.estorias;
         let index = estoriasLocal.findIndex(item => item.id === id);
-        estoriasLocal[index].ativo = ativar;
+        estoriasLocal[index].ativo = !estoriasLocal[index].ativo;
 
         this.setState({
             estorias: estoriasLocal
@@ -127,18 +127,21 @@ class Taskboard extends Component {
 
         jQuery.ajax({
             method: 'PUT',
-            data: estoriasLocal[index],
-            url: `http://localhost:3001/casas/${id}`
+            data: JSON.stringify(estoriasLocal[index]),
+            url: `http://localhost:3001/casas/${id}`,
+            contentType: "application/json",
         })
     }//fim ativar
 
-    _ativos(ativo) {
+/*    _Casas(ativo) {
         jQuery.ajax({
             method: 'GET',
             url: `http://localhost:3001/casas?ativo=${ativo}`,
-            success: estorias => this.setState({estorias})
+            success: casasestorias => this.setState({ 
+                ativo ? casasAtivas : casasInativas : estorias
+            })
         });
-    }
+    }*/
 
 }
 

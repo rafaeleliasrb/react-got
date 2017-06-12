@@ -33,12 +33,10 @@ class Estoria extends Component {
                     <div className="card-content"> 
                         <p>{this.props.lema}</p>
                         <p>{this.props.id}</p>
-                        <p>ativo:{this.props.ativo}</p>
                     </div>
                     <div className="card-action">
                         <a className="activator" href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>
-                        <a href="#" onClick={this._handleExcluir.bind(this)}>Excluir</a>
-                        <a href="#" onClick={this._handlerSalvar.bind(this)}>Salvar</a>
+                        <a href="#" onClick={this._handleAlterar.bind(this)}>{this.props.ativo ? 'SIM' : 'NÃO'}</a>
                     </div>
                     <div className="card-reveal">
                         <span className="card-title grey-text text-darken-4">
@@ -55,14 +53,9 @@ class Estoria extends Component {
         this.props.onDelete(this.props.id);
     }
 
-    _handleExcluir(event) {
+    _handleAlterar(event) {
         event.preventDefault();
-        this.props.onAtivar(this.props.id, false);
-    }    
-
-    _handlerSalvar(event) {
-        event.preventDefault();
-        this.props.onAtivar(this.props.id, true);
+        this.props.onAlterar(this.props.id);
     }
 }
 

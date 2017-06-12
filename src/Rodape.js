@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class Rodape extends Component {
     render() {
         return (
-            <footer className="page-footer orange">
+            <footer className="page-footer grey white-text">
                 <div className="container">
                     <div className="row">
                         <div className="col l6 s12">
-                        Introdução ao React
+                        Aplicações ricas para WEB - React
                         </div>
                     </div>
                 </div>

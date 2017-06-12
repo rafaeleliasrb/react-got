@@ -45,9 +45,7 @@ class Taskboard extends Component {
                     {/*<h1 className="header center orange-text">Casas GoT</h1>
                     <h3>{titulo}</h3>*/}
                     <div className="row">
-                        <div className="col s12 cards-container">
-                            {estorias}
-                        </div>
+                        {estorias}
                     </div>
                     {modal}
                 </div>

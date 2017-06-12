@@ -10,7 +10,7 @@ class Estoria extends Component {
 
         return (
             <div className="col s12 m4 l3">
-                <div className="card height-l">
+                <div className="card">
                     <div className="card-image">
                         <img src={imagem} alt={this.props.casa}></img>
                     </div>
@@ -18,14 +18,9 @@ class Estoria extends Component {
                         <p>{this.props.casa}</p>
                     </div>
                     <div className="card-action">
-                        {/*<a className="activator" href="#" onClick={this._handleClick.bind(this)}>{textoBotao}</a>*/}
-                        <a href="#modal1" onClick={this._abrirModal.bind(this)}>Descrição</a>
+                        <a href="#modal1" onClick={this._abrirModal.bind(this)}
+                            className="left">Ver descrição</a>
                         <a href="#" onClick={this._handleDelete.bind(this)}>Excluir</a>
-                    </div>
-                    <div className="card-reveal">
-                        <span className="card-title grey-text text-darken-4">
-                            {this.props.casa}<i className="material-icons right">close</i></span>
-                        <p>{this.props.descricao}</p>
                     </div>
                 </div>
             </div> 

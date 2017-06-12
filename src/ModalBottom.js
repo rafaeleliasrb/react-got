@@ -14,7 +14,7 @@ class ModalBottom extends Component {
                         </div>
                         <div className="col s12 m9">
                             <h4 className="left">{this.props.casa}</h4>
-                            <a href="#!" className="right modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+                            {/*<a href="#!" className="right modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>*/}
                             <div className="clearfix">
                                 <p>{this.props.descricao}</p>
                             </div>

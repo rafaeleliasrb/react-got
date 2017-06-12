@@ -21,7 +21,7 @@ class Taskboard extends Component {
             url: 'http://localhost:3001/casas',
             success: estorias => this.setState({estorias})
         });
-    }estorias
+    }
 
     render() {
         const estorias = this._getEstorias();
@@ -117,34 +117,29 @@ class Taskboard extends Component {
     }
 
     _ativar(id, ativar) {
-        console.log("inicio");
-        var estorias = this.state.estorias;
-        var index = estorias.findIndex(item => item.id === id);
-        var estoriaLocal = estorias[index];
+        let estoriasLocal = this.state.estorias;
+        let index = estoriasLocal.findIndex(item => item.id === id);
+        estoriasLocal[index].ativo = ativar;
 
-        var estoriaAlterada = {
-            "id": estoriaLocal.id,
-            "casa": estoriaLocal.casa, 
-            "lema": estoriaLocal.lema,
-            "brasao": estoriaLocal.brasao,
-            "descricao": estoriaLocal.descricao,
-            "membros": estoriaLocal.membros,
-            "url": estoriaLocal.url,
-            "ativo": ativar  
-        };
-        estorias[index] = estoriaAlterada;
-
-        this.setState({estorias: estorias}, function () {
-            console.log("estado");
-        });
+        this.setState({
+            estorias: estoriasLocal
+        })
 
         jQuery.ajax({
             method: 'PUT',
-            data: estoriaAlterada,
-            url: `http://localhost:3001/casas/${id}`,
+            data: estoriasLocal[index],
+            url: `http://localhost:3001/casas/${id}`
         })
-        console.log("fim");
     }//fim ativar
+
+    _ativos(ativo) {
+        jQuery.ajax({
+            method: 'GET',
+            url: `http://localhost:3001/casas?ativo=${ativo}`,
+            success: estorias => this.setState({estorias})
+        });
+    }
+
 }
 
 export default Taskboard;

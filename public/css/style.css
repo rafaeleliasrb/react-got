@@ -30,5 +30,9 @@
 }
 
 .logo-left {
-    width: 80px;
+  width: 80px;
+}
+
+.img-inativo {
+  opacity: 0.3;
 }

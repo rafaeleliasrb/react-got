@@ -12,7 +12,7 @@ class Casa extends Component {
             <div className="col s12 m4 l3">
                 <div className="card">
                     <div className="card-image">
-                        <img src={imagem} alt={this.props.casa}></img>
+                        <img src={imagem} alt={this.props.casa} className={this.props.ativo ? '' : 'img-inativo'}></img>
                     </div>
                     <div className="card-content"> 
                         <p>{this.props.casa}</p>

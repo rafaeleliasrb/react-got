@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Casa from './Casa';
-import EstoriaForm from './EstoriaForm';
 import ModalBottom from './ModalBottom';
 import jQuery from 'jquery';
 
